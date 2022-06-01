@@ -1,0 +1,29 @@
+{% extends "FoodTaster/index.html" %}
+{% load static %}
+{% block FoodTaster_content %}
+
+<h2>Lista de Platos</h2>
+<a class="card_custom" href="{% url 'FoodTaster:dish-add' %}">Ingresar nuevo plato</a>
+<hr></hr>
+<ul>
+    {% for dish in dish_list %}
+    <li>
+        {{dish}}
+        (
+        <a href="{% url 'FoodTaster:dish-detail' dish.id %}">
+            <i class="fa fa-eye" style="color: rgb(0, 0, 255);"> </i>
+        </a>
+        |
+        <a href="{% url 'FoodTaster:dish-update' dish.id %}">
+            <i class="fa fa-pencil" style="color: rgb(0, 0, 190);"> </i>
+        </a>
+        |
+        <a href="{% url 'FoodTaster:dish-delete' dish.id %}">
+            <i class="fa fa-trash" style="color: rgb(0, 0, 100);"> </i>
+        </a>
+        )
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

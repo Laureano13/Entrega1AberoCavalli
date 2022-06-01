@@ -1,0 +1,13 @@
+{% extends "FoodTaster/index.html" %}
+{% load static %}
+{% block FoodTaster_content %}
+
+<ul class="list-group list-group-flush"></ul>
+    {% for dish in dishes %}
+    <li>
+        <i class="list-group-item">{{dish}}</i>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
