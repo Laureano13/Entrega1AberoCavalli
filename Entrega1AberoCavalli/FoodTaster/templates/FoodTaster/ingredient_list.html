@@ -2,14 +2,14 @@
 {% load static %}
 {% block FoodTaster_content %}
 
-<h2>Lista de Platos</h2>
+<h2>Lista de Ingredientes existentes</h2>
 <hr></hr>
 
 <ul>
-    {% for dish in Dishes %}
+    {% for ingredient in ingredients %}
     <li class="list-group list-group-horizontal">
         <p style="background-color: #050505b1; border-color: black; border-radius: 0.5%;">
-        <p>{{dish.name}}</p>
+        <p>{{ingredient.name}}</p>
         (
         <a href="{% url 'FoodTaster:dish-detail' dish.id %}">
             <i class="fa fa-eye" style="color: rgb(255, 255, 255); "> </i>
@@ -20,6 +20,6 @@
     {% endfor %}
 </ul>
 
-<a class="card_custom" href="{% url 'FoodTaster:dish-add' %}">Crear nuevo Plato</a>
+<a class="card_custom" href="{% url 'FoodTaster:ingredient-add' %}">Crear nuevo Ingrediente</a>
 
 {% endblock %}

@@ -2,8 +2,22 @@
 {% load static %}
 {% block FoodTaster_content %}
 
-<h2>Detalle del Curso</h2>
-<hr></hr>
-<p><h3>Plato: {{ dish.name }}</h3></p>
-<p><a class="btn2 btn-primary" href="{% url 'FoodTaster:dish-list' %}">Regresar a la lista de cursos</a></p>
+<p><h3 class="mb-1 ms-xl-1">Nombre: {{ dish.name }}</h3></p>
+<p class="mb-1 ms-xl-2">{{ dish.description }} <br></p>
+
+<div>
+    <p><a class="btn2 btn-primary" href="{% url 'FoodTaster:recipe-add' dish.id %}">Agregar receta</a></p>
+</div>
+
+{% if recipes %}
+    <ul>
+        {% for recipe in recipes %}
+            <li>
+                <h4>{{ recipe.name }}</h4>
+                <p><br><small>{{ recipe.description }}</small></p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
 {% endblock %}

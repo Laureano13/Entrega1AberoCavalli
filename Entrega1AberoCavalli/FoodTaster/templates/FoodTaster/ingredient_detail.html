@@ -1,0 +1,13 @@
+{% extends "FoodTaster/index.html" %}
+{% load static %}
+{% block FoodTaster_content %}
+
+<p><h3 class="mb-1 ms-xl-1">Ingrediente</h3></p>
+<h5>Nombre : {{ ingredient.name }}</h5>
+<p><small>{{ ingredient.description }}</small></p>
+
+<div>
+    <p><a class="btn btn-primary" href="{% url 'FoodTaster:ingredient-add' %}">Agregar otro ingrediente</a></p>
+</div>
+
+{% endblock %}

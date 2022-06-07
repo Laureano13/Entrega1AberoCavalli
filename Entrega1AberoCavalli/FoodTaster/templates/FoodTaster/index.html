@@ -22,15 +22,12 @@
     </head>
     <body>
         <!-- Navigation-->
-        <nav class="navbar navbar-light bg-light static-top">
+        <nav class="navbar navbar-light bg-light static-top justify-content-center">
             <div class="container">
                 <a class="navbar-brand" href="{% url 'FoodTaster:home' %}">Home</a>
-                <a class="navbar-brand" href="{% url 'FoodTaster:dish' %}">Platos</a>
-                {% if user.is_authenticated %}
-                <a class="btn btn-primary" href="{% url 'FoodTaster:user-logout' %}">Cerrar Sesión</a>
-                {% else %}
-                <a class="btn btn-primary" href="{% url 'FoodTaster:user-login' %}">Iniciar Sesión</a>
-                {% endif %}
+                <a class="navbar-brand" href="{% url 'FoodTaster:dish-list' %}">Platos</a>
+                <a class="navbar-brand" href="{% url 'FoodTaster:ingredient-list' %}">Ingrediente</a>
+                <a class="navbar-brand" href="{% url 'FoodTaster:search-recipe' %}">Buscar Recetas</a>
             </div>
         </nav>
         <!-- Masthead-->
@@ -40,7 +37,7 @@
                     <div class="col-xl-6">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                            <h1 class="mb-5">Este es nuestro Playground Avanzado <br> Django-CoderHouse</h1>
+                            <h1 class="mb-5">Bienvenido al blog de Recetas</h1>
                             <div class="text-lg-start text-white">
                                 {% block FoodTaster_content %}
 

@@ -1,0 +1,24 @@
+{% extends "FoodTaster/index.html" %}
+{% load static %}
+{% block FoodTaster_content %}
+
+<p><h3 class="mb-1 ms-xl-1">Recetas</h3></p>
+
+<div>
+    <p><a class="btn2 btn-primary" href="{% url 'FoodTaster:recipe-add' recipe.id %}">Agregar receta</a></p>
+</div>
+
+{% if recipes %}
+    <ul>
+        {% for recipe in recipes %}
+            <li>
+                <h3>Nombre : {{ recipe.name }}</h3>
+                <p style="background-color: #050505b1; border-color: black; border-radius: 0.5%;">
+                    {{ recipe.description }}
+                </p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% endblock %}

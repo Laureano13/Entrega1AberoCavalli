@@ -2,12 +2,20 @@
 {% load static %}
 {% block FoodTaster_content %}
 
-<ul class="list-group list-group-flush"></ul>
+<div class="list-group">
     {% for dish in dishes %}
-    <li>
-        <i class="list-group-item">{{dish}}</i>
-    </li>
+    <ul> 
+        <a href="{% url 'FoodTaster:dish-detail' dish.id %}" class="list-group-item list-group-item-action flex-column align-items-start home-card">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{ dish.name }}</h5>
+        </div>
+        </a>
+        <div class="d-flex w-100 justify-content-between" style="background-color: white;">
+        <p class="mb-1 ms-xl-2" style="color:black;">{{dish.description}}</p>
+        </div>
+    </ul>
     {% endfor %}
-</ul>
+  </div>
 
+  
 {% endblock %}

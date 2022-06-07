@@ -1,0 +1,26 @@
+{% extends "FoodTaster/index.html" %}
+{% load static %}
+{% block FoodTaster_content %}
+
+<h2>Buscador de recetas</h2>
+<hr></hr>
+
+<form action="/FoodTaster/search-recipes" method="GET">
+    <div>
+        <input type="text" name="text_search" id="recipe_name" placeholder="Busqueda por nombre">
+        <input type="submit" value="Buscar por Nombre">
+    </div>
+</form>
+
+{% if recipes %}
+    <ul>
+        {% for recipe in recipes %}
+            <li>
+                <h4>Nombre : {{ recipe.name }}</h4>
+                <p><br><small>{{ recipe.description }}</small></p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% endblock %}

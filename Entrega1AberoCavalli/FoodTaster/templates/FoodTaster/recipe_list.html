@@ -2,16 +2,16 @@
 {% load static %}
 {% block FoodTaster_content %}
 
-<h2>Lista de Platos</h2>
+<h2>Lista de Recetas para el plato: {{ dish.name }}</h2>
 <hr></hr>
 
 <ul>
-    {% for dish in Dishes %}
+    {% for recipe in Recipes %}
     <li class="list-group list-group-horizontal">
         <p style="background-color: #050505b1; border-color: black; border-radius: 0.5%;">
-        <p>{{dish.name}}</p>
+        <a href="{% url 'FoodTaster:recipe-detail' recipe.id %}">{{recipe.name}}</a>
         (
-        <a href="{% url 'FoodTaster:dish-detail' dish.id %}">
+        <a href="{% url 'FoodTaster:recipe-detail' recipe.id %}">
             <i class="fa fa-eye" style="color: rgb(255, 255, 255); "> </i>
         </a>
         )
@@ -20,6 +20,6 @@
     {% endfor %}
 </ul>
 
-<a class="card_custom" href="{% url 'FoodTaster:dish-add' %}">Crear nuevo Plato</a>
+<a class="card_custom" href="{% url 'FoodTaster:recipe-add' %}">Crear nuevo Plato</a>
 
 {% endblock %}
