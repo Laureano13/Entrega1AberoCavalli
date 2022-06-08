@@ -49,14 +49,15 @@ def search(request):
 
 #Dishes
 def dish(request, pk):
-    dish = Dish.objects.filter(pk=pk)
+    dishes = Dish.objects.filter(pk=pk)
     #Se obtiene el la info general del plato
     #dish_info = dish.values('name', 'description')[0] 
     #Para el plato obtengo las recetas
     recipes = Recipe.objects.filter(dishCode=pk)
 
     context_dict = {
-        'dishes' : dish,
+        'pk' : pk,
+        'dishes' : dishes,
         'recipes' : recipes,
     }
 

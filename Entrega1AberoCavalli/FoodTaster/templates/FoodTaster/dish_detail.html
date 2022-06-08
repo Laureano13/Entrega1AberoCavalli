@@ -2,12 +2,16 @@
 {% load static %}
 {% block FoodTaster_content %}
 
-<p><h3 class="mb-1 ms-xl-1">Nombre: {{ dish.name }}</h3></p>
-<p class="mb-1 ms-xl-2">{{ dish.description }} <br></p>
+{% for dish in dishes %}
 
-<div>
-    <p><a class="btn2 btn-primary" href="{% url 'FoodTaster:recipe-add' dish.id %}">Agregar receta</a></p>
-</div>
+    <p><h3 class="mb-1 ms-xl-1">Nombre: {{ dish.name }}</h3></p>
+    <p class="mb-1 ms-xl-2">{{ dish.description }} <br></p>
+
+    <div>                                 
+        <p><a class="btn2 btn-primary" href="{% url 'FoodTaster:recipe-add' pk  %}">Agregar receta</a></p>
+    </div>
+    
+{% endfor %}
 
 {% if recipes %}
     <ul>
